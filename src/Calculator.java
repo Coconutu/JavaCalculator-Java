@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-//https://youtu.be/dfhmTyRTCSQ?si=qaupua4KuoFc_BSc 31:20
+//https://youtu.be/dfhmTyRTCSQ?si=qaupua4KuoFc_BSc 31:06
 public class Calculator implements ActionListener {
     JFrame frame;
     JTextField textField;
@@ -60,9 +60,11 @@ public class Calculator implements ActionListener {
            numberButtons[i].setFont(myFont);
            numberButtons[i].setFocusable(false);
         }
-        delButton.setBounds(50,430,100,50);
-        clrButton.setBounds(205,430,100,50);
         negButton.setBounds(50,430,100,50);
+        delButton.setBounds(150,430,100,50);
+        clrButton.setBounds(250,430,100,50);
+
+
         panel=new JPanel();
         panel.setBounds(50,100,300,300);
         panel.setLayout(new GridLayout(4,4,10,10));
@@ -84,14 +86,12 @@ public class Calculator implements ActionListener {
         panel.add(numberButtons[0]);
         panel.add(equButton);
         panel.add(divButton);
-        panel.add(negButton);
 
+        frame.add(panel);
 
         frame.add(delButton);
         frame.add(clrButton);
-        frame.add(panel);
-
-
+        frame.add(negButton);
         frame.add(textField);
         textField.setEditable(false);
         frame.setVisible(true);
