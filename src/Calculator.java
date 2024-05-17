@@ -21,6 +21,7 @@ public class Calculator implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(420,550);
         frame.setLayout(null);
+
         textField=new JTextField();
         textField.setBounds(50,25,300,50);
         textField.setFont(myFont);
@@ -31,15 +32,17 @@ public class Calculator implements ActionListener {
         divButton=new JButton("/");
         decButton=new JButton(".");
         equButton=new JButton("=");
+
         delButton=new JButton("Delete");
         clrButton=new JButton("CLR");
 
         functionButtons[0]=addButton;
         functionButtons[1]=subButton;
-        functionButtons[3]=mulButton;
-        functionButtons[4]=divButton;
-        functionButtons[5]=decButton;
-        functionButtons[6]=equButton;
+        functionButtons[2]=mulButton;
+        functionButtons[3]=divButton;
+        functionButtons[4]=decButton;
+        functionButtons[5]=equButton;
+        functionButtons[6]=delButton;
         functionButtons[7]=clrButton;
 
         for(int i=0;i<8;i++)
@@ -57,10 +60,31 @@ public class Calculator implements ActionListener {
         }
         delButton.setBounds(50,430,145,50);
         clrButton.setBounds(205,430,145,50);
+        panel=new JPanel();
+        panel.setBounds(50,100,300,300);
+        panel.setLayout(new GridLayout(4,4,10,10));
+        //panel.setBackground(Color.gray);
+        frame.add(panel);
+        panel.add(numberButtons[1]);
+        panel.add(numberButtons[2]);
+        panel.add(numberButtons[3]);
+        panel.add(addButton);
+        panel.add(numberButtons[4]);
+        panel.add(numberButtons[5]);
+        panel.add(numberButtons[6]);
+        panel.add(subButton);
+        panel.add(numberButtons[7]);
+        panel.add(numberButtons[8]);
+        panel.add(numberButtons[9]);
+        panel.add(mulButton);
+        panel.add(decButton);
+        panel.add(numberButtons[0]);
+        panel.add(equButton);
+        panel.add(divButton);
+
+
         frame.add(delButton);
         frame.add(clrButton);
-
-
 
 
 
@@ -74,7 +98,12 @@ public class Calculator implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-
+    for (int i=0;i<10;i++)
+    {
+        if (e.getSource()==numberButtons[i]){
+            textField.setText(textField.getText().concat(String.valueOf(i)));
+        }
+    }
     }
 
 
